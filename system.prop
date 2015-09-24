@@ -13,7 +13,6 @@ ro.telephony.ril.config=simactivation
 ril.ecclist=000,08,100,101,102,110,112,118,119,120,122,911,999
 ro.com.android.mobiledata=false
 ro.config.always_show_roaming=true
-ro.config.max_starting_bg=8
 ro.gps.agps_provider=1
 ro.qc.sdk.izat.premium.enabled=0
 ro.qc.sdk.izat.service_mask=0x0
@@ -178,8 +177,10 @@ ro.am.reschedule_service=true
 persist.camera.pip.support=0
 
 #Enable B service adj transition by default
+ro.sys.fw.bservice_enable=true
 ro.sys.fw.bservice_limit=5
 ro.sys.fw.bservice_age=5000
+ro.config.max_starting_bg=8
 
 # Dex-opt
 dalvik.vm.dex2oat-threads=2

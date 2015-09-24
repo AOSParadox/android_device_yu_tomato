@@ -44,6 +44,7 @@ on init
 
 on fs
     mount_all fstab.qcom
+    write /proc/sys/vm/page-cluster 0
     mkdir /persist/data 0700 system system
     restorecon_recursive /persist
 
