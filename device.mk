@@ -13,6 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+$(call inherit-product-if-exists, vendor/yu/tomato/tomato-vendor.mk)
+
+$(call inherit-product, frameworks/native/build/phone-hdpi-2048-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 # WCNSS
 PRODUCT_COPY_FILES += \
@@ -33,12 +37,16 @@ include device/qcom/msm8916_64/msm8916_64.mk
 DEVICE_PACKAGE_OVERLAYS += device/yu/tomato/overlay
 PRODUCT_PACKAGE_OVERLAYS += device/yu/tomato/overlay
 
+# Screen density
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
 # Due to multi-density builds, these are set by init
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model ro.sf.lcd_density
 
-# Appt
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+# System property
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp
 
 # ANT+
 PRODUCT_PACKAGES += \
@@ -52,7 +60,6 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8916 \
     libmm-qcamera
 
 # Charger
@@ -93,8 +100,5 @@ PRODUCT_PACKAGES += \
 # Wifi
 PRODUCT_PACKAGES += \
     libwpa_client \
+    libwcnss_qmi \
     wcnss_service
-
-# Wifi
-PRODUCT_PACKAGES += \
-    libwcnss_qmi
