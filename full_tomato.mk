@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2015 The AOSParadox Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,12 +15,6 @@
 #
 
 # Inherit from those products. Most specific first.
-ifneq ($(TOMATO_32_BIT),true)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-endif
-
-TARGET_LOCALES := en_US en_IN en_GB hi_IN mr_IN ml_IN ta_IN kn_IN te_IN
-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from tomato device
@@ -32,3 +26,16 @@ PRODUCT_NAME := full_tomato
 PRODUCT_BRAND := YU
 PRODUCT_MODEL := AO5510
 PRODUCT_MANUFACTURER := YU
+
+PRODUCT_GMS_CLIENTID_BASE := android-micromax
+
+TARGET_VENDOR_PRODUCT_NAME := YUREKA
+TARGET_VENDOR_DEVICE_NAME := YUREKA
+PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=YUREKA PRODUCT_NAME=YUREKA
+
+## Use the latest approved GMS identifiers unless running a signed build
+ifneq ($(SIGN_BUILD),true)
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BUILD_FINGERPRINT=YU/YUREKA/YUREKA:5.0.2/LRX22G/YNG1TAS1K0:user/release-keys \
+    PRIVATE_BUILD_DESC="YUREKA-user 5.0.2 LRX22G YNG1TAS1K0 release-keys"
+endif
