@@ -43,10 +43,6 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 # Due to multi-density builds, these are set by init
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model ro.sf.lcd_density
 
-# System property
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
-
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService \
