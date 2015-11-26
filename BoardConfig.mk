@@ -69,7 +69,8 @@ TARGET_PROVIDES_LIBLIGHT := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1
-TARGET_KERNEL_CONFIG := cyanogenmod_tomato-64_defconfig
+KERNEL_DEFCONFIG := cyanogenmod_tomato-64_defconfig
+TARGET_USE_CM_RAMDISK := true
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -81,7 +82,7 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1258291200
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 13576175616 # 13576192000 - 16384
 
 # Qualcomm support
-BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_QCOM_HARDWARE := false
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/yu/tomato/ramdisk/fstab.qcom
@@ -91,6 +92,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/yu/tomato
+
+# Sensors
+TARGET_PROVIDES_SENSORSHAL := true
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk

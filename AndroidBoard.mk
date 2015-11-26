@@ -17,7 +17,7 @@
 LOCAL_PATH := $(call my-dir)
 
 BOARD_KERNEL_SEPARATED_DT := true
-KERNEL_DIR := kernel/yu/msm8916_64
+KERNEL_DIR := kernel
 
 -include $(TOP)/$(KERNEL_DIR)/AndroidKernel.mk
 
