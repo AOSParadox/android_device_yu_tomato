@@ -31,7 +31,7 @@ PRODUCT_COPY_FILES += \
 
 # CAF Branch
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.par.branch=LA.BR.1.2.6-01610-8x16.0
+    ro.par.branch=LA.BR.1.2.6-01710-8x16.0 
 
 # CodeAurora msm8916_64 Tree
 include device/qcom/msm8916_64/msm8916_64.mk
