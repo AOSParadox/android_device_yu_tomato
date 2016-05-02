@@ -20,6 +20,8 @@
 TARGET_NO_BOOTLOADER := true
 TARGET_CPU_CORTEX_A53 := true
 
+ENABLE_CPUSETS := true
+
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
