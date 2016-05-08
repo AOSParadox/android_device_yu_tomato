@@ -33,3 +33,4 @@ allow bluetooth_loader qmuxd:unix_stream_socket { connectto };
 
 allow bluetooth_loader ylparams_device:chr_file r_file_perms;
 allow bluetooth_loader persist_file:dir search;
+allow bluetooth_loader bluetooth_data_file:file getattr;
