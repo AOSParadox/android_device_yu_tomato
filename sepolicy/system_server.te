@@ -7,3 +7,6 @@ allow system_server color_device:chr_file rw_file_perms;
 
 # QC Time
 allow system_server time_daemon:unix_stream_socket connectto;
+
+# Log Daemon
+allow system_server logd:dir search;

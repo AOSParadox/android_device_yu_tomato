@@ -1,0 +1,4 @@
+allow init logd:dir search;
+allow init logd:file { read open };
+allow init logd:unix_dgram_socket { bind create };
+allow init logd:unix_stream_socket { bind create };
