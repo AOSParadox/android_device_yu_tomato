@@ -4,3 +4,4 @@ allow perfd system_data_file:sock_file unlink;
 allow perfd system_data_file:dir add_name;
 allow perfd system_data_file:sock_file create;
 allow perfd system_data_file:sock_file setattr;
+allow perfd system_data_file:sock_file write;
