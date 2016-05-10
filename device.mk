@@ -15,6 +15,10 @@
 #
 $(call inherit-product-if-exists, vendor/yu/tomato/tomato-vendor.mk)
 
+# OpenGLES
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/etc/permissions/android.hardware.opengles.aep.xml \
+
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/yu/tomato/ramdisk,root)
@@ -25,7 +29,7 @@ PRODUCT_COPY_FILES += \
 
 # CAF Branch
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.par.branch=LA.BR.1.2.6-01710-8x16.0 
+    ro.par.branch=LA.BR.1.2.6-01810-8x16.0 
 
 # CodeAurora msm8916_64 Tree
 include device/qcom/msm8916_64/msm8916_64.mk
