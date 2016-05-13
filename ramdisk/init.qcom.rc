@@ -338,7 +338,7 @@ on property:init.svc.bootanim=stopped
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay "25000 800000:50000"
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 50
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 30000
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 998400
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 800000
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 0
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "1 249000:10 499000:30 800000:50 998400:70"
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 30000
