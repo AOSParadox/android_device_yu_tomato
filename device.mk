@@ -29,7 +29,7 @@ PRODUCT_COPY_FILES += \
 
 # CAF Branch
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.par.branch=LA.BR.1.2.6-01810-8x16.0 
+    ro.par.branch=LA.BR.1.2.6-01710-8x16.0 
 
 # Bootanimation
 PRODUCT_COPY_FILES += \
