@@ -329,4 +329,13 @@
 
     <!-- Whether to to intercept inputs on screen off. -->
     <bool name="config_enableKeyHandler">true</bool>
+
+    <!-- Enable overlay for all location components. -->
+    <bool name="config_enableNetworkLocationOverlay" translatable="false">false</bool>
+    <string name="config_networkLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
+    <bool name="config_enableFusedLocationOverlay" translatable="false">false</bool>
+    <string name="config_fusedLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
+
+    <!-- Component name of the combo network location provider. -->
+    <string name="config_comboNetworkLocationProvider" translatable="false">com.qualcomm.location</string>
 </resources>
