@@ -21,10 +21,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/yu/tomato/device.mk)
 
 # BSP
-$(call inherit-product, vendor/qcom/proprietary/common/msm8916/BoardConfigVendor.mk)
-$(call inherit-product, vendor/qcom/proprietary/common/config/device-vendor.mk)
-$(call inherit-product, vendor/qcom/proprietary/common/config/rendering-engine.mk)
-$(call inherit-product, vendor/qcom/proprietary/common/config/qtic-config.mk)
+$(call inherit-product-if-exists, vendor/qcom/proprietary/common/msm8916/BoardConfigVendor.mk)
+$(call inherit-product-if-exists, vendor/qcom/proprietary/common/config/device-vendor.mk)
+$(call inherit-product-if-exists, vendor/qcom/proprietary/common/config/rendering-engine.mk)
+$(call inherit-product-if-exists, vendor/qcom/proprietary/common/config/qtic-config.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := tomato
