@@ -28,7 +28,7 @@ def IncrementalOTA_Assertions(info):
 
 def InstallImage(img_name, img_file, partition, info):
   common.ZipWriteStr(info.output_zip, img_name, img_file)
-  info.script.AppendExtra(('package_extract_file("' + img_name + '", "/dev/block/bootdevice/by-name/' + partition + '");'))
+  info.script.AppendExtra(('package_extract_file("' + img_name + '", "/dev/block/platform/7824900.sdhci/by-name/' + partition + '");'))
 
 image_partitions = {
    'emmc_appsboot.mbn' : 'aboot',

@@ -27,17 +27,17 @@
 
 # filename              partition
 
-emmc_appsboot.mbn       /dev/block/bootdevice/by-name/aboot
-emmc_appsboot.mbn.bak   /dev/block/bootdevice/by-name/abootbak
-hyp.mbn                 /dev/block/bootdevice/by-name/hyp
-hyp.mbn.bak             /dev/block/bootdevice/by-name/hypbak
-NON-HLOS.bin            /dev/block/bootdevice/by-name/modem
-rpm.mbn                 /dev/block/bootdevice/by-name/rpm
-rpm.mbn.bak             /dev/block/bootdevice/by-name/rpmbak
-sbl1.mbn                /dev/block/bootdevice/by-name/sbl1
-sbl1.mbn.bak            /dev/block/bootdevice/by-name/sbl1bak
-tz.mbn                  /dev/block/bootdevice/by-name/tz
-tz.mbn.bak              /dev/block/bootdevice/by-name/tzbak
+emmc_appsboot.mbn       /dev/block/platform/7824900.sdhci/by-name/aboot
+emmc_appsboot.mbn.bak   /dev/block/platform/7824900.sdhci/by-name/abootbak
+hyp.mbn                 /dev/block/platform/7824900.sdhci/by-name/hyp
+hyp.mbn.bak             /dev/block/platform/7824900.sdhci/by-name/hypbak
+NON-HLOS.bin            /dev/block/platform/7824900.sdhci/by-name/modem
+rpm.mbn                 /dev/block/platform/7824900.sdhci/by-name/rpm
+rpm.mbn.bak             /dev/block/platform/7824900.sdhci/by-name/rpmbak
+sbl1.mbn                /dev/block/platform/7824900.sdhci/by-name/sbl1
+sbl1.mbn.bak            /dev/block/platform/7824900.sdhci/by-name/sbl1bak
+tz.mbn                  /dev/block/platform/7824900.sdhci/by-name/tz
+tz.mbn.bak              /dev/block/platform/7824900.sdhci/by-name/tzbak
 
 modem.*                 /dev/block/platform/bootdevice/by-name/modem
 adsp.*                  /dev/block/platform/bootdevice/by-name/modem
