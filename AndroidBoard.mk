@@ -24,3 +24,6 @@ $(PRODUCT_OUT)/kernel: $(TARGET_PREBUILT_KERNEL)
 	cp $(TARGET_PREBUILT_KERNEL) $(PRODUCT_OUT)/kernel
 
 include device/qcom/msm8916_64/AndroidBoard.mk
+
+# Copy firmware
+include device/yu/tomato/radio.mk
