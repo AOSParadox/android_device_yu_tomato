@@ -20,6 +20,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from tomato device
 $(call inherit-product, device/yu/tomato/device.mk)
 
+# Copy firmware
+$(call inherit-product, device/yu/tomato/radio.mk)
+
 # BSP
 $(call inherit-product-if-exists, vendor/qcom/proprietary/common/msm8916/BoardConfigVendor.mk)
 $(call inherit-product-if-exists, vendor/qcom/proprietary/common/config/device-vendor.mk)
