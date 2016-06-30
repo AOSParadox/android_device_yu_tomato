@@ -58,12 +58,11 @@ TARGET_USES_AOSP := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
 
-
-# DoubleTapWake
-TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/touchscreen/touchscreen_dev/gesture_ctrl"
-
 # FM
 AUDIO_FEATURE_ENABLED_FM := true
+
+# Gestures
+TARGET_GESTURES_NODE := "/sys/devices/virtual/touchscreen/touchscreen_dev/gesture_ctrl"
 
 # Init
 TARGET_LIBINIT_DEFINES_FILE := device/yu/tomato/init/init_tomato.cpp
