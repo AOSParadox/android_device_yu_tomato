@@ -314,11 +314,11 @@ on property:init.svc.bootanim=stopped
     write /proc/sys/kernel/sched_mostly_idle_load 30
     write /proc/sys/kernel/sched_mostly_idle_nr_run 3
 
-    write /sys/class/devfreq/cpubw/governor "bw_hwmon"
-    write /sys/class/devfreq/cpubw/bw_hwmon/io_percent 20
-    write /sys/class/devfreq/gpubw/governor "bw_hwmon"
-    write /sys/class/devfreq/gpubw/bw_hwmon/io_percent 40
-    write /sys/class/devfreq/mincpubw/governor "cpufreq"
+    write /sys/class/devfreq/qcom,cpubw.64/governor "bw_hwmon"
+    write /sys/class/devfreq/qcom,cpubw.64/bw_hwmon/io_percent 20
+    write /sys/class/devfreq/qcom,gpubw.61/governor "bw_hwmon"
+    write /sys/class/devfreq/qcom,gpubw.61/bw_hwmon/io_percent 40
+    write /sys/class/devfreq/qcom,mincpubw.65/governor "cpufreq"
 
     # enable governor for perf cluster
     write /sys/devices/system/cpu/cpu0/online 1
