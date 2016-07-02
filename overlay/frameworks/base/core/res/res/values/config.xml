@@ -295,16 +295,16 @@
     <string name="config_radio_access_family">GPRS|EDGE|UMTS|HSDPA|HSUPA|HSPA|LTE|HSPAP|GSM|TD_SCDMA|WCDMA|LTE_CA</string>
 
     <!-- Keycodes of gestures. If the gesture is not supported set it to 0. -->
-    <integer name="config_doubleTapKeyCode">1</integer>
-    <integer name="config_drawCKeyCode">1</integer>
-    <integer name="config_drawEKeyCode">1</integer>
-    <integer name="config_drawOKeyCode">1</integer>
-    <integer name="config_drawMKeyCode">1</integer>
-    <integer name="config_drawWKeyCode">1</integer>
-    <integer name="config_oneFingerSwipeUpKeyCode">1</integer>
-    <integer name="config_oneFingerSwipeRightKeyCode">1</integer>
-    <integer name="config_oneFingerSwipeDownKeyCode">1</integer>
-    <integer name="config_oneFingerSwipeLeftKeyCode">1</integer>
+    <integer name="config_doubleTapKeyCode">190</integer>
+    <integer name="config_drawCKeyCode">185</integer>
+    <integer name="config_drawEKeyCode">187</integer>
+    <integer name="config_drawOKeyCode">186</integer>
+    <integer name="config_drawMKeyCode">188</integer>
+    <integer name="config_drawWKeyCode">189</integer>
+    <integer name="config_oneFingerSwipeUpKeyCode">182</integer>
+    <integer name="config_oneFingerSwipeRightKeyCode">184</integer>
+    <integer name="config_oneFingerSwipeDownKeyCode">181</integer>
+    <integer name="config_oneFingerSwipeLeftKeyCode">183</integer>
 
     <!-- Default settings for gestures
             0 - Disabled
@@ -316,16 +316,16 @@
             6 - Previous music
             7 - Open camera
             8 - Open dialer -->
-    <integer name="config_doubleTapDefault">258</integer>
-    <integer name="config_drawCDefault">253</integer>
-    <integer name="config_drawEDefault">255</integer>
-    <integer name="config_drawODefault">254</integer>
-    <integer name="config_drawMDefault">256</integer>
-    <integer name="config_drawWDefault">257</integer>
-    <integer name="config_oneFingerSwipeUpDefault">250</integer>
-    <integer name="config_oneFingerSwipeRightDefault">252</integer>
-    <integer name="config_oneFingerSwipeDownDefault">249</integer>
-    <integer name="config_oneFingerSwipeLeftDefault">251</integer>
+    <integer name="config_doubleTapDefault">1</integer>
+    <integer name="config_drawCDefault">0</integer>
+    <integer name="config_drawEDefault">0</integer>
+    <integer name="config_drawODefault">7</integer>
+    <integer name="config_drawMDefault">0</integer>
+    <integer name="config_drawWDefault">0</integer>
+    <integer name="config_oneFingerSwipeUpDefault">0</integer>
+    <integer name="config_oneFingerSwipeRightDefault">6</integer>
+    <integer name="config_oneFingerSwipeDownDefault">0</integer>
+    <integer name="config_oneFingerSwipeLeftDefault">5</integer>
 
     <!-- Whether to to intercept inputs on screen off. -->
     <bool name="config_enableKeyHandler">true</bool>
