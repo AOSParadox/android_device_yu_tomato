@@ -366,12 +366,6 @@ on property:init.svc.bootanim=stopped
     chown system system /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
     chown system system /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
 
-    # Update foreground and background cpusets
-    write /dev/cpuset/foreground/cpus 0-7
-    write /dev/cpuset/foreground/boost/cpus 0-3
-    write /dev/cpuset/background/cpus 0
-    write /dev/cpuset/system-background/cpus 4-7
-
     # HMP scheduler (big.Little cluster related) settings
     write /proc/sys/kernel/sched_upmigrate 75
     write /proc/sys/kernel/sched_downmigrate 60
@@ -608,8 +602,6 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     class main
     user camera
     group camera system inet input graphics
-    writepid /dev/cpuset/system-background/tasks
-
 
 # Allow usb charging to be disabled peristently
 on property:persist.usb.chgdisabled=1
@@ -627,7 +619,6 @@ service perfd /system/vendor/bin/perfd
    class main
    user root
    group root
-   writepid /dev/cpuset/system-background/tasks
    disabled
 
 service thermal-engine /system/vendor/bin/thermal-engine
