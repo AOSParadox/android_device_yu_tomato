@@ -95,13 +95,6 @@ PRODUCT_PACKAGES += \
     power.msm8916 \
     power.qcom
 
-# qti-telephony-common
-PRODUCT_PACKAGES += \
-    QtiTelephonyService \
-    qti_telephony_common.xml \
-    qti-telephony-common.jar \
-    QtiTelephonyServicelibrary.jar
-
 # Sensors
 PRODUCT_PACKAGES += \
     libjni_proximityCalibrate \
