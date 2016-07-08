@@ -60,7 +60,6 @@ debug.enable.sglscale=1
 # system props for the cne module
 #
 persist.cne.feature=0
-persist.dpm.feature=2
 
 #system props for the MM modules
 media.stagefright.enable-player=true
