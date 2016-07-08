@@ -4450,7 +4450,8 @@ int32_t QCameraParameters::initDefaultParameters()
     // Set supported preview sizes
     if (m_pCapability->preview_sizes_tbl_cnt > 0 &&
         m_pCapability->preview_sizes_tbl_cnt <= MAX_SIZES_CNT) {
-        String8 previewSizeValues = "1920x1080,1280x720,720x480" // Set preview sizes to 1080p,720p,480p
+        String8 previewSizeValues = createSizesString(
+                m_pCapability->preview_sizes_tbl, m_pCapability->preview_sizes_tbl_cnt);
         set(KEY_SUPPORTED_PREVIEW_SIZES, previewSizeValues.string());
         CDBG_HIGH("%s: supported preview sizes: %s", __func__, previewSizeValues.string());
         // Set default preview size
