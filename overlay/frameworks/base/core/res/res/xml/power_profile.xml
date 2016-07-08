@@ -1,39 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+**
+** Copyright 2016, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License")
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
 <device name="Android">
-    <item name="screen.on">63</item>
-    <item name="screen.full">261</item>
-    <item name="bluetooth.active">93.5</item>
-    <item name="bluetooth.on">3.6</item>
-    <item name="wifi.on">1.7</item>
-    <item name="wifi.active">131</item>
-    <item name="wifi.scan">100</item>
-    <item name="dsp.audio">24</item>
-    <item name="dsp.video">63</item>
-    <item name="radio.active">159</item>
-    <item name="radio.scanning">4</item>
-    <item name="gps.on">46</item>
-    <array name="radio.on">
-        <value>3.9</value>
-        <value>2.8</value>
+  <!-- Most values are the incremental current used by a feature,
+       in mA (measured at nominal voltage).
+       The default values are deliberately incorrect dummy values.
+       OEM's must measure and provide actual values before
+       shipping a device.
+       Example real-world values are given in comments, but they
+       are totally dependent on the platform and can vary
+       significantly, so should be measured on the shipping platform
+       with a power meter. -->
+    <item name="screen.on">63</item>  <!-- ~200mA -->
+    <item name="screen.full">261</item> <!-- ~300mA -->
+    <item name="bluetooth.active">93.5</item> <!-- Bluetooth data transfer, ~10mA -->
+    <item name="bluetooth.on">3.6</item> <!-- Bluetooth on & connectable, but not connected, ~0.1mA -->
+    <item name="wifi.on">1.7</item> <!-- ~3mA -->
+    <item name="wifi.active">131</item> <!-- WIFI data transfer, ~200mA -->
+    <item name="wifi.scan">100</item> <!-- WIFI network scanning, ~100mA -->
+    <item name="dsp.audio">24</item> <!-- ~10mA -->
+    <item name="dsp.video">63</item> <!-- ~10mA -->
+    <item name="camera.flashlight">0.1</item> <!-- TODO: Power for camera flash, ~160mA -->
+    <item name="camera.avg">0.1</item> <!-- TODO: Power use of camera in standard usecases, ~550mA -->
+    <item name="radio.active">159</item> <!-- ~200mA -->
+    <item name="radio.scanning">4</item> <!-- cellular radio scanning for signal, ~10mA -->
+    <item name="gps.on">46</item> <!-- ~50mA -->
+    <!-- Current consumed by the radio at different signal strengths, when paging -->
+    <array name="radio.on"> <!-- Strength 0 to BINS-1 -->
+        <value>3.9</value> <!-- ~2mA -->
+        <value>2.8</value> <!-- ~1mA -->
     </array>
-    <array name="cpu.speeds">
-        <value>200000</value>
-        <value>400000</value>
-        <value>533333</value>
-        <value>800000</value>
-        <value>998000</value>
-        <value>1094400</value>
-        <value>1190400</value>
+
+    <!-- A list of heterogeneous CPU clusters, where the value for each cluster represents the
+         number of CPU cores for that cluster.n -->
+    <array name="cpu.clusters.cores">
+        <value>4</value>
+        <value>4</value>
+    </array> 
+
+    <!--
+        NOTE: actual available speeds:
+        BIG: 200000 345600 400000 533333 800000 960000 1113600 1344000 1459200
+        little: 200000 249600 499200 800000 998400 1113600
+    -->
+    <array name="cpu.active.cluster0">
+      <value>0.1</value>  <!-- ~100mA -->
+        </array>
+    <array name="cpu.speeds.cluster0">
+      <value>200000</value>
+      <value>345600</value>
+      <value>400000</value>
+      <value>533333</value>
+      <value>800000</value>
+      <value>960000</value>
+      <value>1113600</value>
+      <value>1344000</value>
+      <value>1459200</value>
     </array>
-    <array name="cpu.active">
-        <value>151</value>
-        <value>169</value>
-        <value>177</value>
-        <value>195</value>
-        <value>259</value>
-        <value>307</value>
-        <value>353</value>
+
+    <array name="cpu.active.cluster1">
+      <value>0.1</value>  <!-- ~100mA -->
     </array>
+    <array name="cpu.speeds.cluster1">
+      <value>200000</value>
+      <value>249600</value>
+      <value>499200</value>
+      <value>800000</value>
+      <value>998400</value>
+      <value>1113600</value>
+    </array>
+
+    <!-- Power used when CPUs are in scheduling idle state -->
+    <item name="cpu.awake">1.6</item>
+    <!-- Current when CPU is idle -->
     <item name="cpu.idle">1.6</item>
+    <!-- This is the battery capacity in mAh (measured at nominal voltage) -->
     <item name="battery.capacity">2500</item>
+
+    <array name="wifi.batchedscan"> <!-- mA -->
+      <value>.0002</value> <!-- 1-8/hr -->
+      <value>.002</value>  <!-- 9-64/hr -->
+      <value>.02</value>   <!-- 65-512/hr -->
+      <value>.2</value>    <!-- 513-4,096/hr -->
+      <value>2</value>    <!-- 4097-/hr -->
+    </array>
 </device>
