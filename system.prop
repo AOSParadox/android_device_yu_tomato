@@ -176,12 +176,6 @@ ro.am.reschedule_service=true
 # system property for PIP support
 persist.camera.pip.support=0
 
-#Enable B service adj transition by default
-ro.sys.fw.bservice_enable=true
-ro.sys.fw.bservice_limit=5
-ro.sys.fw.bservice_age=5000
-ro.config.max_starting_bg=8
-
 # Dex-opt
 dalvik.vm.dex2oat-threads=2
 dalvik.vm.boot-dex2oat-threads=4
