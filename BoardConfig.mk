@@ -96,7 +96,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 13576175616 # 13576192000 - 16384
 TARGET_POWERHAL_SET_INTERACTIVE_EXT := device/yu/tomato/power/power_ext.c
 
 # Qualcomm support
-BOARD_USES_QCOM_HARDWARE := false
+BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/yu/tomato/ramdisk/fstab.qcom
