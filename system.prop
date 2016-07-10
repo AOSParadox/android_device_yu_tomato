@@ -186,3 +186,6 @@ dalvik.vm.image-dex2oat-threads=4
 ro.qualcomm.perf.cores_online=2
 ro.min_freq_0=960000
 ro.min_freq_4=800000
+
+# WI-Fi
+wifi.interface=wlan0
