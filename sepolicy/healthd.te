@@ -1,3 +1,2 @@
-allow healthd device:dir read;
-allow healthd device:dir open;
-allow healthd self:capability dac_override;
+# Allow healthd to access RTC
+allow healthd rtc_device:chr_file rw_file_perms;

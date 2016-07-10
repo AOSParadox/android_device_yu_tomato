@@ -1,3 +1,4 @@
+# mm-qcamerad
 allow mm-qcamerad camera_data_file:dir r_dir_perms;
-allow mm-qcamerad system_data_file:dir { read open };
-allow mm-qcamerad system_file:file execmod;
+allow mm-qcamerad mpctl_socket:dir search;
+unix_socket_connect(mm-qcamerad, mpctl, perfd)

@@ -29,8 +29,16 @@ allow bluetooth_loader hci_attach_dev:chr_file rw_file_perms;
 allow bluetooth_loader qmuxd_socket:dir { write add_name remove_name search };
 allow bluetooth_loader qmuxd_socket:sock_file { create setattr getattr write unlink };
 allow bluetooth_loader qmuxd:unix_stream_socket { connectto };
-#
 
+# Allow bluetooth_loader to work with YL Params
 allow bluetooth_loader ylparams_device:chr_file r_file_perms;
+
+# Read mac address from persist partition
 allow bluetooth_loader persist_file:dir search;
-allow bluetooth_loader bluetooth_data_file:file getattr;
+r_dir_file(bluetooth_loader, bluetooth_data_file)
+allow bluetooth_loader self:capability { dac_override dac_read_search chown };
+
+# It may write a random mac here
+allow bluetooth_loader persist_file:dir { add_name write };
+allow bluetooth_loader persist_file:file { create_file_perms };
+allow bluetooth_loader bluetooth_data_file:file create_file_perms;

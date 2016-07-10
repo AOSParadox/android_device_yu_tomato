@@ -1,2 +1,0 @@
-allow shell init_exec:file getattr;
-allow shell tombstone_data_file:dir getattr;

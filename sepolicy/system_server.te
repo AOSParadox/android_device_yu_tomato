@@ -1,13 +1,3 @@
-# CmHardwareService access to TapToWake and KeyDisabler
+# Access to TapToWake and KeyDisabler
 allow system_server touchpanel_sysfs:file rw_file_perms;
 allow system_server touchpanel_sysfs:dir { search };
-
-# CmHardwareService access to Color Calibration
-allow system_server color_device:chr_file rw_file_perms;
-
-# QC Time
-allow system_server time_daemon:unix_stream_socket connectto;
-
-# Log Daemon
-allow system_server logd:dir search;
-allow system_server logd:file { read getattr };
