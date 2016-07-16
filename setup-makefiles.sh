@@ -73,7 +73,6 @@ for FILE in `egrep -v '(^#|^$)' proprietary-files-qc.txt`; do
 done
 (cat << EOF) >> $MAKEFILE
 endif
-
 EOF
 
 (cat << EOF) > ../../../$OUTDIR/$DEVICE-vendor.mk

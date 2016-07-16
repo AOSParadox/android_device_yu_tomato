@@ -15,10 +15,6 @@
 #
 $(call inherit-product-if-exists, vendor/yu/tomato/tomato-vendor.mk)
 
-# OpenGLES
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/etc/permissions/android.hardware.opengles.aep.xml \
-
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/yu/tomato/ramdisk,root)
