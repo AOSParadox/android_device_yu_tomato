@@ -31,8 +31,8 @@ persist.camera.pip.support=0
 # Core Control
 ro.core_ctl_max_cpu=4
 ro.core_ctl_min_cpu=2
-ro.min_freq_0=960000
-ro_min_freq_4=800000
+ro.min_freq_0=200000
+ro_min_freq_4=200000
 
 # Dalvik
 dalvik.vm.heapsize=36m
