@@ -351,11 +351,11 @@ set_speaker_light_locked(struct light_device_t* dev,
             offMS = 7000;
 
         // ramp up, lit, ramp down, unlit. in seconds.
-        sprintf(breath_pattern,"1 %d 1 %d",(int)(onMS/1000),(int)(offMS/1000));
+        snprintf(breath_pattern, sizeof(breath_pattern)"1 %d 1 %d",(int)(onMS/1000),(int)(offMS/1000));
 
     } else {
         blink = 0;
-        sprintf(breath_pattern,"1 2 1 2");
+        snprintf(breath_pattern, sizeof(breath_pattern)"1 2 1 2");
     }
 
     // Do everything with the lights out, then turn up the brightness
