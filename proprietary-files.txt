@@ -61,3 +61,32 @@ vendor/lib/libmmcamera_ov5648_cp8675.so
 vendor/lib/libmmcamera_pdaf.so
 vendor/lib/libmmcamera_pdafcamif.so
 vendor/lib/libmmcamera_sunny_imx214_eeprom.so
+
+# Radio
+-app/QtiTelephonyService/QtiTelephonyService.apk
+-app/shutdownlistener/shutdownlistener.apk
+-framework/qcrilhook.jar
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+framework/qti-telephony-common.jar
+framework/QtiTelephonyServicelibrary.jar
+etc/permissions/qcrilhook.xml
+etc/permissions/qti_telephony_common.xml
+vendor/lib64/liblqe.so
+vendor/lib64/libmdmdetect.so
+vendor/lib64/libril-qc-radioconfig.so
+
+# Radio - IMS
+-vendor/app/ims/ims.apk
+-vendor/app/imssettings/imssettings.apk
+bin/imsdatadaemon
+
+# Perf
+framework/QPerformance.jar
+vendor/bin/perfd
+
+# Widevine
+lib/libdrmdecrypt.so
+vendor/lib/drm/libdrmwvmplugin.so
+vendor/lib/libWVStreamControlAPI_L3.so
+vendor/lib/libwvdrm_L3.so
+vendor/lib/mediadrm/libwvdrmengine.so
