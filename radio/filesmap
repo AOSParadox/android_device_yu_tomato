@@ -39,6 +39,9 @@ sbl1.mbn.bak            /dev/block/platform/7824900.sdhci/by-name/sbl1bak
 tz.mbn                  /dev/block/platform/7824900.sdhci/by-name/tz
 tz.mbn.bak              /dev/block/platform/7824900.sdhci/by-name/tzbak
 
+dummy.bin               /dev/block/platform/bootdevice/by-name/modemst1
+dummy.bin               /dev/block/platform/bootdevice/by-name/modemst2
+
 modem.*                 /dev/block/platform/bootdevice/by-name/modem
 adsp.*                  /dev/block/platform/bootdevice/by-name/modem
 wcnss.*                 /dev/block/platform/bootdevice/by-name/modem
