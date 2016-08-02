@@ -98,11 +98,13 @@ BOARD_USES_QCOM_HARDWARE := false
 TARGET_RECOVERY_FSTAB := device/yu/tomato/ramdisk/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := ABGR_8888
 TARGET_RECOVERY_DENSITY := xhdpi
+TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/yu/tomato
+TARGET_RELEASETOOLS_EXTENSIONS := device/qcom/common
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
