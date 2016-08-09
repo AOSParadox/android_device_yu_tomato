@@ -6,3 +6,77 @@ etc/firmware/venus.b03
 etc/firmware/venus.b04
 etc/firmware/venus.mbn
 etc/firmware/venus.mdt
+
+# cmnlib
+etc/firmware/cmnlib.b00
+etc/firmware/cmnlib.b01
+etc/firmware/cmnlib.b02
+etc/firmware/cmnlib.b03
+etc/firmware/cmnlib.mdt
+
+# isdbtmm
+etc/firmware/isdbtmm.b00
+etc/firmware/isdbtmm.b01
+etc/firmware/isdbtmm.b02
+etc/firmware/isdbtmm.b03
+etc/firmware/isdbtmm.mdt
+
+# keymaster
+etc/firmware/keymaste.b00
+etc/firmware/keymaste.b01
+etc/firmware/keymaste.b02
+etc/firmware/keymaste.b03
+etc/firmware/keymaste.mdt
+
+# modem
+etc/firmware/mba.mbn
+etc/firmware/modem.b00
+etc/firmware/modem.b01
+etc/firmware/modem.b02
+etc/firmware/modem.b03
+etc/firmware/modem.b04
+etc/firmware/modem.b05
+etc/firmware/modem.b08
+etc/firmware/modem.b10
+etc/firmware/modem.b11
+etc/firmware/modem.b13
+etc/firmware/modem.b14
+etc/firmware/modem.b15
+etc/firmware/modem.b16
+etc/firmware/modem.b17
+etc/firmware/modem.b18
+etc/firmware/modem.b19
+etc/firmware/modem.b22
+etc/firmware/modem.b23
+etc/firmware/modem.b24
+etc/firmware/modem.b25
+etc/firmware/modem.mdt
+
+# playread
+etc/firmware/playread.b00
+etc/firmware/playread.b01
+etc/firmware/playread.b02
+etc/firmware/playread.b03
+etc/firmware/playread.mdt
+
+# wcnss
+etc/firmware/wcnss.b00
+etc/firmware/wcnss.b01
+etc/firmware/wcnss.b02
+etc/firmware/wcnss.b03
+etc/firmware/wcnss.b04
+etc/firmware/wcnss.b05
+etc/firmware/wcnss.b06
+etc/firmware/wcnss.b07
+etc/firmware/wcnss.b08
+etc/firmware/wcnss.b09
+etc/firmware/wcnss.b10
+etc/firmware/wcnss.b11
+etc/firmware/wcnss.mdt
+
+# widevine
+etc/firmware/widevine.b00
+etc/firmware/widevine.b01
+etc/firmware/widevine.b02
+etc/firmware/widevine.b03
+etc/firmware/widevine.mdt
