@@ -355,8 +355,8 @@ on property:init.svc.bootanim=stopped
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 200000
 
-    # Enable thermal core_control now
-    write /sys/module/msm_thermal/core_control/enabled 1
+    # Enable thermal throttle
+    write /sys/module/msm_thermal/parameters/enabled 1
 
     # bring all CPUs online
     write /sys/devices/system/cpu/cpu1/online 1
