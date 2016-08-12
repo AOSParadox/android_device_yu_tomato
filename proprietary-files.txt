@@ -22,11 +22,11 @@ etc/firmware/isdbtmm.b03
 etc/firmware/isdbtmm.mdt
 
 # keymaster
-etc/firmware/keymaste.b00
-etc/firmware/keymaste.b01
-etc/firmware/keymaste.b02
-etc/firmware/keymaste.b03
-etc/firmware/keymaste.mdt
+vendor/firmware/keymaster/keymaster.b00
+vendor/firmware/keymaster/keymaster.b01
+vendor/firmware/keymaster/keymaster.b02
+vendor/firmware/keymaster/keymaster.b03
+vendor/firmware/keymaster/keymaster.mdt
 
 # modem
 etc/firmware/mba.mbn
