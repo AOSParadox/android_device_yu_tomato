@@ -44,6 +44,21 @@ $(ISDB_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(ISDB_SYMLINKS)
 
+MODEM_IMAGES := \
+    modem.b00 modem.b01 modem.b02 modem.b03 modem.b04 modem.b05 \
+    modem.b08 modem.b10 modem.b11 modem.b13 modem.b14 modem.b15 \
+    modem.b16 modem.b17 modem.b18 modem.b19 modem.b22 modem.b23 \
+    modem.b24 modem.b25 modem.mdt
+
+MODEM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(MODEM_IMAGES)))
+$(MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Modem firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(MODEM_SYMLINKS)
+
 PLAYREADY_IMAGES := \
     playread.b00 playread.b01 playread.b02 playread.b03 playread.mdt
 
@@ -57,8 +72,9 @@ $(PLAYREADY_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 ALL_DEFAULT_INSTALLED_MODULES += $(PLAYREADY_SYMLINKS)
 
 WCNSS_IMAGES := \
-    wcnss.b00 wcnss.b01 wcnss.b02 wcnss.b04 wcnss.b06 \
-    wcnss.b09 wcnss.b10 wcnss.b11 wcnss.mdt
+    wcnss.b00 wcnss.b01 wcnss.b02 wcnss.b03 wcnss.b04 \
+    wcnss.b05 wcnss.b06 wcnss.b07 wcnss.b08 wcnss.b09 \
+    wcnss.b10 wcnss.b11 wcnss.mdt
 
 WCNSS_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(WCNSS_IMAGES)))
 $(WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
