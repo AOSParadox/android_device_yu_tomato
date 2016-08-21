@@ -28,9 +28,7 @@ persist.camera.cpp.duplication=false
 persist.camera.hal.debug.mask=0
 persist.camera.pip.support=0
 
-# Core Control
-ro.core_ctl_max_cpu=4
-ro.core_ctl_min_cpu=2
+# Core min frequency
 ro.min_freq_0=200000
 ro_min_freq_4=200000
 
