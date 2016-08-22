@@ -65,6 +65,10 @@ ifeq ($(HOST_OS),linux)
 endif
 WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
+# Filesystem
+TARGET_KERNEL_HAVE_EXFAT := true
+TARGET_KERNEL_HAVE_NTFS := true
+
 # FM
 AUDIO_FEATURE_ENABLED_FM := true
 
