@@ -119,6 +119,9 @@ ro.sys.fw.trim_empty_percent=100
 ro.sys.fw.trim_enable_memory=1073741824
 ro.sys.fw.use_trim_settings=true
 
+# Storage
+ro.sdcardfs.enable=true
+
 # Time Services
 persist.timed.enable=true
 ro.am.reschedule_service=true
