@@ -53,10 +53,6 @@ TARGET_NEEDS_TEXT_RELOCATIONS := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
 
-# CNE
-BOARD_USES_QCNE := true
-TARGET_LDPRELOAD := libNimsWrap.so
-
 # Dexopt
 ifeq ($(HOST_OS),linux)
   ifeq ($(TARGET_BUILD_VARIANT),user)
