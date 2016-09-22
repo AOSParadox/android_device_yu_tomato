@@ -33,7 +33,6 @@ $(TARGET_BOOTLOADER_EMMC_INTERNAL): $(TARGET_BOOTLOADER)
 
 INSTALLED_RADIOIMAGE_TARGET += $(TARGET_BOOTLOADER_EMMC_INTERNAL)
 $(call add-radio-file,images/hyp.mbn)
-$(call add-radio-file,images/NON-HLOS.bin)
 $(call add-radio-file,images/rpm.mbn)
 $(call add-radio-file,images/sbl1.mbn)
 $(call add-radio-file,images/tz.mbn)
