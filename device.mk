@@ -15,7 +15,7 @@
 #
 $(call inherit-product-if-exists, vendor/yu/tomato/tomato-vendor.mk)
 $(call inherit-product-if-exists, vendor/volte/volte.mk)
-$(call inherit-product-if-exists, vendor/volte/lettuce/lettuce-vendor.mk)
+$(call inherit-product-if-exists, vendor/volte/tomato/tomato-vendor.mk)
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
