@@ -72,9 +72,8 @@ $(PLAYREADY_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 ALL_DEFAULT_INSTALLED_MODULES += $(PLAYREADY_SYMLINKS)
 
 WCNSS_IMAGES := \
-    wcnss.b00 wcnss.b01 wcnss.b02 wcnss.b03 wcnss.b04 \
-    wcnss.b05 wcnss.b06 wcnss.b07 wcnss.b08 wcnss.b09 \
-    wcnss.b10 wcnss.b11 wcnss.mdt
+    wcnss.b00 wcnss.b01 wcnss.b02 wcnss.b04 wcnss.b06 \
+    wcnss.b09 wcnss.b10 wcnss.b11 wcnss.mdt
 
 WCNSS_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(WCNSS_IMAGES)))
 $(WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
