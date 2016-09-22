@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 $(call inherit-product-if-exists, vendor/yu/tomato/tomato-vendor.mk)
+$(call inherit-product-if-exists, vendor/volte/volte.mk)
+$(call inherit-product-if-exists, vendor/volte/lettuce/lettuce-vendor.mk)
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
