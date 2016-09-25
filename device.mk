@@ -95,6 +95,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.io.scheduler=bfq
 
+# IMS
+PRODUCT_PACKAGES += \
+    IMSEnabler \
+    ims \
+    imscmlibrary
+
 # Keystore
 PRODUCT_PACKAGES += \
     keystore.msm8916 \
