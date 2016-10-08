@@ -1,5 +1,8 @@
 LOCAL_PATH := $(call my-dir)
 
+# LZMA
+LZMA_BIN := $(shell which lzma)
+
 ## Build and run dtbtool
 DTBTOOL := $(HOST_OUT_EXECUTABLES)/dtbTool$(HOST_EXECUTABLE_SUFFIX)
 INSTALLED_DTIMAGE_TARGET := $(PRODUCT_OUT)/dt.img
@@ -26,9 +29,10 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_FILES) $(INSTAL
 
 ## Overload recoveryimg generation: Same as the original, + --dt arg
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(INSTALLED_DTIMAGE_TARGET) \
-		$(recovery_ramdisk) \
-		$(recovery_kernel)
-		$(call build-recoveryimage-target, $@)
+		$(LZMA_RAMDISK) \
+		$(recovery_uncompressed_ramdisk)
+	@echo "----- Making compressed recovery ramdisk ------"
+	$(hide) $(LZMA_BIN) < $(recovery_uncompressed_ramdisk) > $(recovery_ramdisk)
 	@echo "----- Making recovery image ------"
 	$(hide) $(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) --dt $(INSTALLED_DTIMAGE_TARGET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) --output $@
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)
