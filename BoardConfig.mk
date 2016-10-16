@@ -123,7 +123,6 @@ BOARD_SEPOLICY_DIRS += \
 BOARD_USES_QC_TIME_SERVICES := true
 
 # TWRP Build Flags
-TARGET_RECOVERY_FSTAB := device/yu/tomato/twrp.fstab
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 TW_INCLUDE_CRYPTO := false
