@@ -36,8 +36,6 @@ image_partitions = {
    'NON-HLOS.bin'      : 'modem',
    'rpm.mbn'           : 'rpm',
    'sbl1.mbn'          : 'sbl1',
-   'dummy.bin'         : 'modemst1',
-   'dummy.bin'         : 'modemst2',
    'tz.mbn'            : 'tz'
 }
 
