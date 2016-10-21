@@ -50,7 +50,6 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 #TARGET_USES_AOSP := true
 
 # Charger
-BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.msm
 
 # CNE
@@ -89,6 +88,12 @@ BOARD_CUSTOM_BOOTIMG_MK := device/yu/tomato/mkbootimg.mk
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1
 KERNEL_DEFCONFIG := tomato_defconfig
 TARGET_USE_CM_RAMDISK := true
+
+# Offmode Charging
+BOARD_CHARGER_ENABLE_SUSPEND := true
+COMMON_GLOBAL_CFLAGS += \
+    -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' \
+    -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 20971520
