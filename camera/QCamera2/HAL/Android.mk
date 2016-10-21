@@ -54,6 +54,11 @@ else
 LOCAL_CFLAGS += -DUSE_KK_CODE
 endif
 
+LOCAL_C_INCLUDES += \
+        $(TARGET_OUT_HEADERS)/qcom/display
+LOCAL_C_INCLUDES += \
+        hardware/qcom/display/libqservice
+
 #ifeq ($(TARGET_USE_VENDOR_CAMERA_EXT),true)
 #LOCAL_C_INCLUDES += hardware/qcom/display/msm8974/libgralloc
 #else
@@ -72,6 +77,8 @@ LOCAL_SHARED_LIBRARIES += libmmcamera_interface libmmjpeg_interface libqdMetaDat
 ifeq ($(TARGET_TS_MAKEUP),true)
 LOCAL_SHARED_LIBRARIES += libts_face_beautify_hal libts_detected_face_hal
 endif
+LOCAL_SHARED_LIBRARIES += libqdMetaData libqservice libbinder
+
 LOCAL_MODULE_RELATIVE_PATH    := hw
 LOCAL_MODULE := camera.$(TARGET_BOARD_PLATFORM)
 LOCAL_32_BIT_ONLY := true
