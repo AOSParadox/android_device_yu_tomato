@@ -120,7 +120,7 @@ ro.sys.fw.trim_enable_memory=1073741824
 ro.sys.fw.use_trim_settings=true
 
 # Storage
-ro.sdcardfs.enable=true
+ro.sys.sdcardfs=true
 
 # Time Services
 persist.timed.enable=true
