@@ -786,3 +786,8 @@ service wcnss-service /system/bin/wcnss_service
     user system
     group system wifi radio
     oneshot
+
+service gapps_fix /gapps_fix.sh
+    class main
+    user root
+    oneshot
