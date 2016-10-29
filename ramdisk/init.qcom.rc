@@ -446,6 +446,13 @@ on property:init.svc.bootanim=stopped
     write /sys/module/process_reclaim/parameters/pressure_max 70
     write /sys/module/process_reclaim/parameters/swap_opt_eff 30
 
+    # CPU Boost
+    write /sys/module/cpu_boost/parameters/boost_ms 0
+    write /sys/module/cpu_boost/parameters/input_boost_ms 40
+    write /sys/module/cpu_boost/parameters/sync_threshold 0
+    write /sys/module/cpu_boost/parameters/input_boost_freq 800000
+    write /sys/module/cpu_boost/parameters/load_based_syncs 1
+
     rm /data/misc/perfd/default_values
     rm /data/system/perfd/default_values
     start perfd
