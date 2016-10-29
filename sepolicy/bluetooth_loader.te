@@ -42,3 +42,7 @@ allow bluetooth_loader self:capability { dac_override dac_read_search chown };
 allow bluetooth_loader persist_file:dir { add_name write };
 allow bluetooth_loader persist_file:file { create_file_perms };
 allow bluetooth_loader bluetooth_data_file:file create_file_perms;
+
+# Shell permissions
+allow bluetooth_loader shell_exec:file getattr;
+allow bluetooth_loader toolbox_exec:file { read getattr open execute execute_no_trans };
