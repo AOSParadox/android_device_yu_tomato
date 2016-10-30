@@ -307,6 +307,9 @@ on boot
 
 
 on property:service.bootanim.exit=1
+    # Sched Boost
+    write /proc/sys/kernel/sched_boost 1
+
     write /sys/class/net/rmnet0/queues/rx-0/rps_cpus 10
 
     # Adaptive LMK
