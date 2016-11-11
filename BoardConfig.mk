@@ -113,7 +113,8 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/yu/tomato
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-    device/yu/tomato/sepolicy
+    device/yu/tomato/sepolicy \
+    device/yu/tomato/charger/sepolicy
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
