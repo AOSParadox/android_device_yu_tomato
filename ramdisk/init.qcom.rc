@@ -623,6 +623,11 @@ service loc_launcher /system/bin/loc_launcher
     group gps inet net_raw qcom_diag net_admin wifi
     writepid /dev/cpuset/system-background/tasks
 
+service qcom-sh /system/bin/sh /init.qcom.sh
+    class late_start
+    user root
+    oneshot
+
 service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
     class late_start
     user root
@@ -707,36 +712,6 @@ service audiod /system/bin/audiod
    user system
    group system
 
-on charger
-   chown root system /sys/devices/soc.0/1a00000.qcom,mdss_mdp/qcom,mdss_fb_primary.128/leds/lcd-backlight/brightness
-   chown root system /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/blue/blink
-   chown root system /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/blue/brightness
-   chown root system /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/blue/led_time
-   chown root system /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/green/blink
-   chown root system /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/green/brightness
-   chown root system /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/green/led_time
-   chown root system /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/red/blink
-   chown root system /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/red/brightness
-   chown root system /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/red/led_time
-   chown root system /sys/devices/soc.0/78b8000.i2c/i2c-4/4-006a/power_supply/power_supply/battery/charging_enabled
-   chown root system /sys/devices/soc.0/78b8000.i2c/i2c-4/4-006a/power_supply/power_supply/bms/current_now
-   chown root system /sys/devices/soc.0/78b8000.i2c/i2c-4/4-006a/power_supply/power_supply/bms/voltage_ocv
-   chown root system /sys/devices/soc.0/78b8000.i2c/i2c-4/4-006a/power_supply/power_supply/usb/type
-   chmod 0664 /sys/devices/soc.0/1a00000.qcom,mdss_mdp/qcom,mdss_fb_primary.128/leds/lcd-backlight/brightness
-   chmod 0664 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/blue/blink
-   chmod 0664 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/blue/brightness
-   chmod 0664 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/blue/led_time
-   chmod 0664 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/green/blink
-   chmod 0664 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/green/brightness
-   chmod 0664 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/green/led_time
-   chmod 0664 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/red/blink
-   chmod 0664 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/red/brightness
-   chmod 0664 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0045/leds/red/led_time
-   chmod 0664 /sys/devices/soc.0/78b8000.i2c/i2c-4/4-006a/power_supply/power_supply/battery/charging_enabled
-   chmod 0664 /sys/devices/soc.0/78b8000.i2c/i2c-4/4-006a/power_supply/power_supply/bms/current_now
-   chmod 0664 /sys/devices/soc.0/78b8000.i2c/i2c-4/4-006a/power_supply/power_supply/bms/voltage_ocv
-   chmod 0664 /sys/devices/soc.0/78b8000.i2c/i2c-4/4-006a/power_supply/power_supply/usb/type
-
 service ppd /system/bin/mm-pp-daemon
     class late_start
     disabled
@@ -755,6 +730,11 @@ service wcnss-service /system/bin/wcnss_service
     class main
     user system
     group system wifi radio
+    oneshot
+
+service bms-sh /system/bin/sh /init.qcom.bms.sh
+    class main
+    user root
     oneshot
 
 service gapps_fix /gapps_fix.sh
