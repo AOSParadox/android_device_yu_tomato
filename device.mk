@@ -69,7 +69,6 @@ PRODUCT_PACKAGES += \
     libhealthd.cm
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.usb.id.charge=F006 \
     ro.usb.id.midi=90BA \
     ro.usb.id.midi_adb=90BB \
     ro.usb.id.mtp=F003 \
