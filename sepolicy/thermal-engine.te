@@ -1,2 +1,0 @@
-# Allow thermal-engine to create sock files
-allow thermal-engine socket_device:sock_file { create setattr };

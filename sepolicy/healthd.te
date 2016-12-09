@@ -1,2 +1,1 @@
-# Allow healthd to access RTC
 allow healthd rtc_device:chr_file rw_file_perms;

@@ -1,5 +1,0 @@
-# Allow mediaserver to search in firmware files
-allow mediaserver firmware_file:dir search;
-
-# Allow thermal ioctl
-allow mediaserver socket_device:sock_file write;
