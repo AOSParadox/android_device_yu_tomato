@@ -18,6 +18,11 @@ $(call inherit-product-if-exists, vendor/camera/camera.mk)
 $(call inherit-product-if-exists, vendor/volte/tomato/tomato-vendor.mk)
 $(call inherit-product-if-exists, vendor/volte/volte.mk)
 
+# Gapps
+$(call inherit-product-if-exists, vendor/google/build/opengapps-packages.mk)
+GAPPS_VARIANT := mini
+GAPPS_FORCE_MATCHING_DPI := true
+
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/yu/tomato/ramdisk,root)
