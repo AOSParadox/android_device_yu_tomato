@@ -20,7 +20,7 @@ $(call inherit-product-if-exists, vendor/volte/volte.mk)
 
 # Gapps
 $(call inherit-product-if-exists, vendor/google/build/opengapps-packages.mk)
-GAPPS_VARIANT := mini
+GAPPS_VARIANT := nano
 GAPPS_FORCE_MATCHING_DPI := true
 
 # Ramdisk
