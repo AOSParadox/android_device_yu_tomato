@@ -163,10 +163,6 @@
 /dev/voice_svc            0660   system     audio
 /dev/avtimer              0660   system     audio
 
-# Factory reset protection
-/dev/block/bootdevice/by-name/frp                         0600  system  system
-/dev/block/platform/soc.0/7824900.sdhci/by-name/config    0660  system  system
-
 # DVB devices
 /dev/dvb/adapter0/demux*  0440   media       media
 /dev/dvb/adapter0/dvr*    0660   media       media

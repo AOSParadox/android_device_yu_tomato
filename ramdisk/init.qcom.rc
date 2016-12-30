@@ -34,6 +34,9 @@ on early-init
     mkdir /system 0777 root root
     symlink /data/tombstones /tombstones
 
+    mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
+
     # Turn off backlight on blank
     write /sys/class/leds/lcd-backlight/trigger "backlight"
 
@@ -63,11 +66,6 @@ on fs
     mount_all fstab.qcom
     mkdir /persist/data 0700 system system
     restorecon_recursive /persist
-
-on post-fs
-    write /sys/block/zram0/comp_algorithm lz4
-    swapon_all /fstab.qcom
-    write /proc/sys/vm/page-cluster 0
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -307,9 +305,9 @@ on boot
 
 
 on property:service.bootanim.exit=1
-    # Sched Boost
     write /proc/sys/kernel/sched_boost 1
 
+    # RPS mask
     write /sys/class/net/rmnet0/queues/rx-0/rps_cpus 10
 
     # Adaptive LMK
@@ -320,7 +318,6 @@ on property:service.bootanim.exit=1
     write /proc/sys/kernel/sched_window_stats_policy 3
     write /proc/sys/kernel/sched_ravg_hist_size 5
 
-on property:init.svc.bootanim=stopped
     # HMP Task packing settings for 8939, 8929
     write /proc/sys/kernel/sched_small_task 20
     write /proc/sys/kernel/sched_mostly_idle_load 30
@@ -328,42 +325,12 @@ on property:init.svc.bootanim=stopped
 
     write /sys/class/devfreq/qcom,cpubw.64/governor "bw_hwmon"
     write /sys/class/devfreq/qcom,cpubw.64/bw_hwmon/io_percent 20
+    write /sys/class/devfreq/qcom,gpubw.61/governor "bw_hwmon"
     write /sys/class/devfreq/qcom,gpubw.61/bw_hwmon/io_percent 40
     write /sys/class/devfreq/qcom,mincpubw.65/governor "cpufreq"
 
     # Disable thermal core_control to update interactive gov settings
     write /sys/module/msm_thermal/core_control/enabled 0
-
-    # Permissions for cpufreq sysfs
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-    chown system system /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-    chmod 0660 /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-    chown system system /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
-    chmod 0660 /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
-    chown system system /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
-    chmod 0660 /sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq
-    chown system system /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq
-    chmod 0660 /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq
-    chown system system /sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq
-    chmod 0660 /sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq
-
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-    chown system system /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
-    chmod 0660 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
-    chown system system /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
-    chmod 0660 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
-    chown system system /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
-    chmod 0660 /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor
-    chown system system /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor
-    chmod 0660 /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor
-    chown system system /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor
-    chmod 0660 /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor
 
     # Enable governor for perf cluster
     write /sys/devices/system/cpu/cpu0/online 1
@@ -375,8 +342,7 @@ on property:init.svc.bootanim=stopped
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 0
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "1 960000:85 1113600:90 1344000:80"
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 50000
-    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/sampling_down_factor 50000
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 200000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 960000
 
     # Enable governor for power cluster
     write /sys/devices/system/cpu/cpu4/online 1
@@ -388,13 +354,16 @@ on property:init.svc.bootanim=stopped
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 0
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "1 800000:90"
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
-    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/sampling_down_factor 40000
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 200000
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 800000
 
-    # Enable thermal throttle
-    write /sys/module/msm_thermal/parameters/enabled 1
+    # Enable thermal core_control now
+    write /sys/module/msm_thermal/core_control/enabled 1
 
-    # bring all CPUs online
+    # HMP scheduler (big.Little cluster related) settings
+    write /proc/sys/kernel/sched_upmigrate 75
+    write /proc/sys/kernel/sched_downmigrate 60
+
+    # Bring all CPUs online
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
@@ -426,30 +395,6 @@ on property:init.svc.bootanim=stopped
     write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms 5000
     write /sys/devices/system/cpu/cpu4/core_ctl/not_preferred 1
 
-    # HMP scheduler (big.Little cluster related) settings
-    write /proc/sys/kernel/sched_upmigrate 75
-    write /proc/sys/kernel/sched_downmigrate 60
-
-    # cpu idle load threshold
-    write /sys/devices/system/cpu/cpu0/sched_mostly_idle_load 30
-    write /sys/devices/system/cpu/cpu1/sched_mostly_idle_load 30
-    write /sys/devices/system/cpu/cpu2/sched_mostly_idle_load 30
-    write /sys/devices/system/cpu/cpu3/sched_mostly_idle_load 30
-    write /sys/devices/system/cpu/cpu4/sched_mostly_idle_load 30
-    write /sys/devices/system/cpu/cpu5/sched_mostly_idle_load 30
-    write /sys/devices/system/cpu/cpu6/sched_mostly_idle_load 30
-    write /sys/devices/system/cpu/cpu7/sched_mostly_idle_load 30
-
-    # cpu idle nr run threshold
-    write /sys/devices/system/cpu/cpu0/sched_mostly_idle_nr_run 3
-    write /sys/devices/system/cpu/cpu1/sched_mostly_idle_nr_run 3
-    write /sys/devices/system/cpu/cpu2/sched_mostly_idle_nr_run 3
-    write /sys/devices/system/cpu/cpu3/sched_mostly_idle_nr_run 3
-    write /sys/devices/system/cpu/cpu4/sched_mostly_idle_nr_run 3
-    write /sys/devices/system/cpu/cpu5/sched_mostly_idle_nr_run 3
-    write /sys/devices/system/cpu/cpu6/sched_mostly_idle_nr_run 3
-    write /sys/devices/system/cpu/cpu7/sched_mostly_idle_nr_run 3
-
     # Per-process reclaim
     write /sys/module/process_reclaim/parameters/enable_process_reclaim 1
     write /sys/module/process_reclaim/parameters/pressure_min 10
@@ -464,13 +409,8 @@ on property:init.svc.bootanim=stopped
     write /sys/module/cpu_boost/parameters/input_boost_freq 800000
     write /sys/module/cpu_boost/parameters/load_based_syncs 1
 
-    rm /data/misc/perfd/default_values
     rm /data/system/perfd/default_values
     start perfd
-    
-    # Disable thermal core_control Again Just to be sure its disabled
-    write /sys/module/msm_thermal/core_control/enabled 0
-    
 
 # Configure IO scheduler
 on property:sys.io.scheduler=*
@@ -573,6 +513,12 @@ service qmuxd /system/bin/qmuxd
     group radio audio bluetooth gps qcom_diag wakelock
     writepid /dev/cpuset/system-background/tasks
 
+service msm_irqbalance /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
+    class core
+    user root
+    group root
+    writepid /dev/cpuset/system-background/tasks
+
 service netmgrd /system/bin/netmgrd
     class main
     group wakelock
@@ -622,11 +568,6 @@ service loc_launcher /system/bin/loc_launcher
     class late_start
     group gps inet net_raw qcom_diag net_admin wifi
     writepid /dev/cpuset/system-background/tasks
-
-service qcom-sh /system/bin/sh /init.qcom.sh
-    class late_start
-    user root
-    oneshot
 
 service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
     class late_start
@@ -692,7 +633,7 @@ service qseecomd /system/bin/qseecomd
 service perfd /system/vendor/bin/perfd
    class main
    user root
-   group root
+   group root readproc
    disabled
    writepid /dev/cpuset/system-background/tasks
 
@@ -731,11 +672,6 @@ service wcnss-service /system/bin/wcnss_service
     class main
     user system
     group system wifi radio
-    oneshot
-
-service bms-sh /system/bin/sh /init.qcom.bms.sh
-    class main
-    user root
     oneshot
 
 service gapps_fix /gapps_fix.sh
