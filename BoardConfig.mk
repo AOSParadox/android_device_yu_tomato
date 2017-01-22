@@ -83,6 +83,7 @@ TARGET_GESTURES_NODE := "/sys/devices/virtual/touchscreen/touchscreen_dev/gestur
 TARGET_LIBINIT_DEFINES_FILE := device/yu/tomato/init/init_tomato.cpp
 
 # Lights
+BOARD_LIGHTS_VARIANT := aw2013
 TARGET_PROVIDES_LIBLIGHT := true
 
 # Kernel
