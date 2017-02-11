@@ -14,9 +14,8 @@
 # limitations under the License.
 #
 $(call inherit-product-if-exists, vendor/yu/tomato/tomato-vendor.mk)
-$(call inherit-product-if-exists, vendor/camera/camera.mk)
-$(call inherit-product-if-exists, vendor/volte/tomato/tomato-vendor.mk)
 $(call inherit-product-if-exists, vendor/volte/volte.mk)
+$(call inherit-product-if-exists, vendor/volte/tomato/tomato-vendor.mk)
 
 # Gapps
 $(call inherit-product-if-exists, vendor/google/build/opengapps-packages.mk)
