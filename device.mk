@@ -30,10 +30,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/yu/tomato/prebuilt/system,system)
 
-# CAF Branch
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.par.branch=LA.BR.1.2.9-01810-8x16.0
-
 # Bootanimation
 PRODUCT_COPY_FILES += \
     vendor/aosparadox/bootanimation/720p_PNG_bootanimation.zip:system/media/bootanimation.zip
