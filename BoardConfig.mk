@@ -88,6 +88,8 @@ TARGET_PROVIDES_LIBLIGHT := true
 
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := device/yu/tomato/mkbootimg.mk
+BOARD_DTBTOOL_ARGS := -2
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 TARGET_KERNEL_SOURCE := kernel/yu/msm8916
@@ -111,6 +113,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := ABGR_8888
 TARGET_RECOVERY_DENSITY := hdpi
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
+TARGET_NOT_USE_GZIP_RECOVERY_RAMDISK := true
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/yu/tomato
